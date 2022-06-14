@@ -1,0 +1,59 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import Member from '../components/Member.astro';
+---
+<Layout title="mmattDonk">
+	<main>
+		<div class="flex justify-center">
+			<img src="https://static-cdn.jtvnw.net/emoticons/v2/306852246/default/dark/3.0" width="50px">
+		</div>
+		<h1 style="text-align: center;">mmattDonk</h1>
+		<h2 style="text-align: center;">making free and open source software for all streamers to make Twitch more fun!</h2>
+		<br />
+		<h2 style="font-weight: bold">things we've made.</h2>
+
+		<ul role="list" class="link-card-grid mb-4">
+			<Card href="https://github.com/mmattDonk/AI-TTS-Donations" title="AI-TTS-Donations (working title)" body="One of the first free AI TTS services with playounds, voice effects, and thousands of voices." wip /> 
+			<Card href="https://github.com/mmattDonk/TwitchTunes" title="TwitchTunes" body="A Python Twitch bot that lets viewers add Spotify songs to your Spotify queue!" /> 
+			<Card href="https://panelcredits.mmattDonk.com" title="Panel Credits" body="Give your viewers credits to be able to spend submitting panels for your Twitch channel!" wip /> 
+		</ul>
+
+		<h2 style="font-weight: bold">where we are.</h2>
+		<ul role='list' class='link-card-grid mb-4'>
+			<Card href="https://twitch.tv/mmattDonk" title="Twitch" body="Mainly for testing new things, but sometimes we throw up a stream to let the public try things out." />
+			<Card href="https://discord.gg/mvVePs2Hs2" title="Discord" body="Join the Discord server to get help with anything we've made, or just to hang out."/>
+		</ul>
+
+		<h2 style="font-weight: bold">the team.</h2>
+		<ul role="list" class="link-card-grid mb-4">
+			<Member name='mmatt' body="The Developer" href="https://mmatt.net" image="https://pbs.twimg.com/profile_images/1526183852158353408/huPyGtZa_400x400.jpg" />
+		</ul>
+
+		<h2 style="font-weight: bold">contact information.</h2>
+		<ul role='list' class='link-card-grid mb-4'>
+			<Card href="mailto:matt@mmatt.net" title="Email" body="Email `matt@mmatt.net` for formal contact." />
+			<Card href='https://discord.gg/mvVePs2Hs2' title="Discord" body='Join the Discord server for non-formal contact. (mmatt is at the top of the userlist with DMs open.)' />
+		</ul>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+    	padding: 1em;
+		max-width: 80ch;
+	}
+
+	h1 {
+		font-size: 2em;
+		font-weight: bold;
+	}
+
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 1rem;
+		padding: 0;
+	}
+</style>
