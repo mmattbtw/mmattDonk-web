@@ -4,13 +4,15 @@ export interface Props {
     body: string,
     href: string,
 	wip?: boolean,
+	beta?: boolean,
 }
-const {href, title, body, wip} = Astro.props;
+const {href, title, body, wip, beta} = Astro.props;
 ---
 <li class="link-card">
     <a href={href}>
         <h2>
 			{wip ? <span class="wip">[WIP]</span> : ""}
+			{beta ? <span class="beta">[BETA]</span> : ""}
             {title}
             <span>&rarr;</span>
         </h2>
@@ -28,6 +30,11 @@ const {href, title, body, wip} = Astro.props;
 	.wip {
 		font-weight: bold;
 		color: red;
+	}
+
+	.beta {
+		font-weight: bold;
+		color: orange;
 	}
 
 	.link-card {
