@@ -1,89 +1,99 @@
 ---
 export interface Props {
-	image: string
-    name: string,
-    body: string,
-    href: string,
-	social: string
+  image: string;
+  name: string;
+  body: string;
+  href: string;
+  social: string;
 }
-const {href, name, body, image, social} = Astro.props;
+const { href, name, body, image, social } = Astro.props;
 ---
-<li class="link-card">
-	<a href={href}>
-		<div>
-			<img src={image} alt={name} width='100px' height='100px' class='rounded inline-block mb-2' />
-			<h2>
-				{name}
-				<span>&rarr;</span>
-			</h2>
-		</div>
-		
-		<div class='flex flex-row justify-between items-end'>
-			<p>
-				{body}
-			</p>
-			<p style="font-size: x-small;">{social}</p>
-		</div>
 
-    </a>
+<li class="link-card">
+  <a href={href}>
+    <div>
+      <img
+        src={image}
+        alt={name}
+        width="100px"
+        height="100px"
+        class="rounded inline-block mb-2"
+      />
+      <h2>
+        {name}
+        <span>&rarr;</span>
+      </h2>
+    </div>
+
+    <div class="flex flex-row justify-between items-end">
+      <p>
+        {body}
+      </p>
+      <p style="font-size: x-small;">{social}</p>
+    </div>
+  </a>
 </li>
 <style>
+  :root {
+    --link-gradient: linear-gradient(
+      45deg,
+      #6bd5ff,
+      #f39aff 30%,
+      var(--color-border) 60%
+    );
+  }
 
-	:root {
-		--link-gradient: linear-gradient(45deg, #6bd5ff, #f39aff 30%, var(--color-border) 60%);
-	}
+  .wip {
+    font-weight: bold;
+    color: red;
+  }
 
-	.wip {
-		font-weight: bold;
-		color: red;
-	}
+  .link-card {
+    list-style: none;
+    display: flex;
+    padding: 0.15rem;
+    background-image: var(--link-gradient);
+    background-size: 400%;
+    border-radius: 0.5rem;
+    background-position: 100%;
+    transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
 
-	.link-card {
-		list-style: none;
-		display: flex;
-		padding: 0.15rem;
-		background-image: var(--link-gradient);
-		background-size: 400%;
-		border-radius: 0.5rem;
-		background-position: 100%;
-		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-	}
+  .link-card > a {
+    width: 100%;
+    text-decoration: none;
+    line-height: 1.4;
+    padding: 1em 1.3em;
+    border-radius: 0.35rem;
+    color: var(--text-color);
+    background-color: rgb(26, 26, 26);
+    opacity: 0.8;
+  }
 
-	.link-card > a {
-		width: 100%;
-		text-decoration: none;
-		line-height: 1.4;
-		padding: 1em 1.3em;
-		border-radius: 0.35rem;
-		color: var(--text-color);
-		background-color: rgb(26, 26, 26);
-		opacity: 0.8;
-	}
+  h2 {
+    margin: 0;
+    transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
 
-	h2 {
-		margin: 0;
-		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-	}
-    
-    p {
-        margin-top: 0.75rem;
-        margin-bottom: 0;
-    }
+  p {
+    margin-top: 0.75rem;
+    margin-bottom: 0;
+  }
 
-	h2 span {
-		display: inline-block;
-		transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-	}
+  h2 span {
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
 
-	.link-card:is(:hover, :focus-within) {
-		background-position: 0;
-	}
+  .link-card:is(:hover, :focus-within) {
+    background-position: 0;
+  }
 
-	.link-card:is(:hover, :focus-within) h2 {
-		color: #F7BEFF;
-	}
+  .link-card:is(:hover, :focus-within) h2 {
+    color: #f7beff;
+  }
 
-	.link-card:is(:hover, :focus-within) h2 {
-		transform: translateX(2px);
-	}
+  .link-card:is(:hover, :focus-within) h2 {
+    transform: translateX(2px);
+  }
 </style>

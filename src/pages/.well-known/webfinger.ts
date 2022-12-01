@@ -4,7 +4,10 @@ export const get: APIRoute = async function get() {
   return {
     body: JSON.stringify({
       subject: "acct:donk@fosstodon.org",
-      aliases: ["https://fosstodon.org/@donk", "https://fosstodon.org/users/donk"],
+      aliases: [
+        "https://fosstodon.org/@donk",
+        "https://fosstodon.org/users/donk",
+      ],
       links: [
         {
           rel: "http://webfinger.net/rel/profile-page",
